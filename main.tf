@@ -22,3 +22,7 @@ resource "openstack_compute_instance_v2" "terraform-test" {
     name = "public"    
   }
 }
+
+output "hello_world" {
+  value = "Hello World"
+}
