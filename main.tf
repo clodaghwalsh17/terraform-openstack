@@ -19,6 +19,7 @@ provider "openstack" {
   tenant_name = var.tenant_name
   password    = var.password
   region      = "RegionOne"
+  max_retries = 200
 }
 
 resource "openstack_compute_instance_v2" "flux-terraform-test" {
