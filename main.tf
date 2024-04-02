@@ -21,14 +21,14 @@ provider "openstack" {
   region      = "RegionOne"
 }
 
-resource "openstack_compute_instance_v2" "terraform-test" {
-  name            = "terraform-test"
-  image_name      = "cirros-0.6.2-x86_64-disk"
-  flavor_id       = "2"
+resource "openstack_compute_instance_v2" "flux-terraform-test" {
+  name            = "flux-terraform-test"
+  image_name      = "fedora-39"
+  flavor_id       = "d09592d3-0d3f-4a98-be10-9e2460fbb67a"
   security_groups = ["default"]
 
   network {
-    name = "public"
+    name = "ext_net"
   }
 }
 
