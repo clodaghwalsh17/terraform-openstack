@@ -8,8 +8,17 @@ terraform {
   }
 }
 
+variable "auth_url" { }
+variable "user_name" { }
+variable "tenant_name" { }
+variable "password" { }
+
 provider "openstack" {
-  cloud = "openstack"
+  auth_url    = var.auth_url
+  user_name   = var.user_name
+  tenant_name = var.tenant_name
+  password    = var.password
+  region      = "RegionOne"
 }
 
 resource "openstack_compute_instance_v2" "terraform-test" {
@@ -19,7 +28,7 @@ resource "openstack_compute_instance_v2" "terraform-test" {
   security_groups = ["default"]
 
   network {
-    name = "public"    
+    name = "public"
   }
 }
 
