@@ -43,7 +43,7 @@ resource "openstack_networking_subnet_v2" "nodes" {
   cidr            = "10.0.0.0/16"
   ip_version      = 4
   network_id      = openstack_networking_network_v2.openshift-private.id
-  dns_nameservers = "10.1.6.1"
+  dns_nameservers = ["10.1.6.1"]
 }
 
 resource "openstack_networking_router_v2" "openshift-external-router" {
